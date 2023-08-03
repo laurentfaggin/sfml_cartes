@@ -137,9 +137,14 @@
   <ItemGroup>
     <ClCompile Include="cartes.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="tapis.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="cartes_img\01-coeur.png" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cartes.h" />
+    <ClInclude Include="tapis.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
