@@ -24,6 +24,9 @@
     <ClCompile Include="tapis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mouseEventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="cartes_img\01-coeur.png">
@@ -35,6 +38,9 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="tapis.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mouseEventHandler.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>

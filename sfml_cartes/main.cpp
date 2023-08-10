@@ -2,6 +2,7 @@
 #include <iostream>
 #include "cartes.h"
 #include "tapis.h"
+#include "mouseEventHandler.h"
 
 void circle();
 void carte();
@@ -80,13 +81,25 @@ void carte() {
     }
     Tapis tapis(aspectTapis);
     tapis.EchelleAuto(taillefenetre.x, taillefenetre.y);
-   
+    MouseEventHandler mouseHandler;
 
     while (window.isOpen())
     {
         sf::Event event;
         while (window.pollEvent(event))
         {
+           /* switch (event.type) {
+            case sf::Event::Closed:
+                window.close();
+                break;
+            case sf::Event::MouseButtonPressed:
+                std::cout << "coucou la souris" << std::endl;
+                break;
+            case sf::Event::MouseButtonReleased:
+                std::cout << "bouton relache" << std::endl;
+
+            }*/
+            mouseHandler.MouseEvent(event, window);
             if (event.type == sf::Event::Closed)
                 window.close();
         }

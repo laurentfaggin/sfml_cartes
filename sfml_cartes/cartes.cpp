@@ -30,3 +30,4 @@ sf::Texture Carte::getTexture() {
 	return *m_sprite.getTexture();
 }
 
+
