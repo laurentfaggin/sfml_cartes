@@ -5,8 +5,8 @@
 class Tapis {
 public:
 	Tapis(sf::Texture& p_texture);
-	void Render(sf::RenderTarget& renderWindow);
-	void EchelleAuto(unsigned int p_largeurFenetre, unsigned int p_hauteurFenetre);
+	void render(sf::RenderTarget& renderWindow);
+	void echelleAuto(unsigned int p_largeurFenetre, unsigned int p_hauteurFenetre);
 	sf::Texture getTexture();
 
 private:

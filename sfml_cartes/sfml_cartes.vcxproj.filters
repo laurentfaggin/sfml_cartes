@@ -43,5 +43,8 @@
     <ClInclude Include="mouseEventHandler.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="Comportements.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

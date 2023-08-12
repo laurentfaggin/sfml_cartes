@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <chrono>
 #include "cartes.h"
 #include "tapis.h"
 #include "mouseEventHandler.h"
@@ -69,10 +70,10 @@ void carte() {
     }
     
     Carte carte(1, "coeur", faceCarte);
-    carte.EchelleAuto(150);
+    carte.echelleAuto(150);
     float centreX = largeurFenetre / 2;
     float centreY = hauteurFenetre / 2;
-    carte.SetPosition(10, 10);
+    carte.setPosition(10, 10);
 
     sf::Vector2u taillefenetre = window.getSize();
     sf::Texture aspectTapis;
@@ -80,33 +81,36 @@ void carte() {
         std::cerr << "erreur" << std::endl;
     }
     Tapis tapis(aspectTapis);
-    tapis.EchelleAuto(taillefenetre.x, taillefenetre.y);
+    tapis.echelleAuto(taillefenetre.x, taillefenetre.y);
     MouseEventHandler mouseHandler;
+    sf::Clock clock;
+    sf::Time delta;
+
+    const float facteurVitesse = 5.5f;
 
     while (window.isOpen())
     {
         sf::Event event;
         while (window.pollEvent(event))
         {
-           /* switch (event.type) {
-            case sf::Event::Closed:
-                window.close();
-                break;
-            case sf::Event::MouseButtonPressed:
-                std::cout << "coucou la souris" << std::endl;
-                break;
-            case sf::Event::MouseButtonReleased:
-                std::cout << "bouton relache" << std::endl;
+            delta = clock.restart();
+            mouseHandler.MouseEvent(event, window, carte);
+            if (carte.getClick()) {
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 
-            }*/
-            mouseHandler.MouseEvent(event, window);
+                    sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
+                    mouseHandler.updateCartePosition(mousePosition, carte, window, delta);                   
+                }
+            }
             if (event.type == sf::Event::Closed)
                 window.close();
         }
 
+
+
         window.clear();
-        tapis.Render(window);
-        carte.Render(window);
+        tapis.render(window);
+        carte.render(window);
         window.display();
     }
 }

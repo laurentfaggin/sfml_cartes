@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cartes.h" />
+    <ClInclude Include="Comportements.h" />
     <ClInclude Include="mouseEventHandler.h" />
     <ClInclude Include="tapis.h" />
   </ItemGroup>
